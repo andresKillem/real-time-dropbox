@@ -1,0 +1,59 @@
+<img id="dashboard-bg" [src]="backgroundUrl" style="z-index: -1;">
+<div class="container">
+  <div id="project-settings" class="text-align-right mt-4">
+    <button mat-raised-button color="accent" routerLink="/dashboard-settings"><i class="material-icons" >settings</i></button>
+  </div>
+  <!-- VIDEO CONTAINER -->
+  <div class="container videoContainer">
+    <video width="700" height="500" autoplay [src] = "contentFile.uri" controls *ngIf="!!videoContent"></video>
+  </div>
+  <!-- IMAGE CONTAINER -->
+  <div class="imageContainer" *ngIf="!!imageContent">
+    <img [src]="contentFile.uri" style="z-index: 100;">
+  </div>
+  <!-- PDF CONTAINER -->
+  <div class="container " *ngIf="!!pdfContent">
+   
+    <pdf-viewer [src]="contentFile.uri" [fit-to-page]="true" [autoresize]="true" [render-text]="true"></pdf-viewer>
+  </div>
+     
+
+  <div id="project-items" class="text-align-center">
+    <div class="row">
+      <!-- button 1 -->
+      <div class="col-md-3 mt-3">
+        <a routerLink="/dashboard" (click)="getContentFile('file1')">
+          <button mat-raised-button color="primary">
+            {{ btn1Label }}
+          </button>
+        </a>
+      </div>
+      <!-- button 2 -->
+      <div class="col-md-3 mt-3" (click)="getContentFile('file2')">
+        <a routerLink="/dashboard">
+          <button mat-raised-button color="primary">
+            {{ btn2Label }}
+          </button>
+        </a>
+      </div>
+      <!-- button 3 -->
+      <div class="col-md-3 mt-3" (click)="getContentFile('file3')">
+        <a routerLink="/dashboard">
+          <button mat-raised-button color="primary">
+            {{ btn3Label }}
+          </button>
+        </a>
+      </div>
+      <!-- button 4 -->
+      <div class="col-md-3 mt-3" (click)="getContentFile('file4')">
+        <a routerLink="/dashboard">
+          <button mat-raised-button color="primary">
+            {{ btn4Label }}
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+          
+</div>
+
